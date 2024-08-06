@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Ads</h2>
+  <a href="{% url 'ad_create' %}">Create new ad</a>
+  <ul>
+    {% for ad in ads %}
+      <li>
+        <a href="{% url 'ad_edit' ad.pk %}">{{ ad.title }}</a>
+        - <a href="{% url 'ad_delete' ad.pk %}">delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
